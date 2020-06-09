@@ -15,12 +15,24 @@ class MainActivity : AppCompatActivity() {
         changeTextView = findViewById(R.id.tvChangeText)
 
         btnStartService.setOnClickListener {
-            startLearnService()
+            startServiceTypeTwo()
         }
 
         btnStopService.setOnClickListener {
 
         }
+    }
+
+    private fun startServiceTypeOne() {
+        val serviceTypeOne = Intent(this, ServiceTypeOne::class.java)
+        serviceTypeOne.putExtra(USER_NAME, "Arun Kumar V")
+        startService(serviceTypeOne)
+    }
+
+    private fun startServiceTypeTwo() {
+        val serviceTypeTwo = Intent(this, ServiceTypeTwo::class.java)
+        serviceTypeTwo.putExtra(USER_NAME, "Arun Kumar V")
+        startService(serviceTypeTwo)
     }
 
     private fun startLearnService() {
