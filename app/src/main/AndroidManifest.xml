@@ -9,20 +9,7 @@
             android:roundIcon="@mipmap/ic_launcher_round"
             android:supportsRtl="true"
             android:theme="@style/AppTheme">
-        <service
-                android:name=".BindServiceWithExtends"
-                android:enabled="true"
-                android:exported="true"></service>
-        <service
-                android:name=".ServiceTypeTwo"
-                android:enabled="true"
-                android:exported="true"></service>
-        <service
-                android:name=".ServiceTypeOne"
-                android:enabled="true"
-                android:exported="true"></service>
-
-        <activity android:name=".MainActivity">
+        <activity android:name=".BindingActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
@@ -30,7 +17,28 @@
             </intent-filter>
         </activity>
 
-        <service android:name=".LearnService" />
+        <service
+                android:name=".BindServiceWithMessenger"
+                android:enabled="true"
+                android:exported="true" />
+        <service
+                android:name=".BindServiceWithExtends"
+                android:enabled="true"
+                android:exported="true" />
+        <service
+                android:name=".ServiceTypeTwo"
+                android:enabled="true"
+                android:exported="true" />
+        <service
+                android:name=".ServiceTypeOne"
+                android:enabled="true"
+                android:exported="true" />
+
+        <activity android:name=".MainActivity">
+
+        </activity>
+
+        <service android:name=".LearnService"></service>
     </application>
 
 </manifest>
