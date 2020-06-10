@@ -25,6 +25,15 @@
             app:layout_constraintTop_toBottomOf="@+id/btnStartService"
     />
 
+    <Button
+            android:id="@+id/btnBoundServiceOne"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/bound_service_one"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/btnStopService"
+            />
+
     <TextView
             android:id="@+id/tvChangeText"
             android:layout_width="match_parent"
