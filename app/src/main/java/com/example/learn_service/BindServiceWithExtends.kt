@@ -5,13 +5,13 @@ import android.content.Intent
 import android.os.Binder
 import android.os.IBinder
 
-class BindServiceTypeOne : Service() {
+class BindServiceWithExtends : Service() {
 
     var localBinder: LocalBinder = LocalBinder()
 
     inner class LocalBinder : Binder() {
-        fun getServiceInstance(): BindServiceTypeOne {
-            return this@BindServiceTypeOne
+        fun getServiceInstance(): BindServiceWithExtends {
+            return this@BindServiceWithExtends
         }
     }
 

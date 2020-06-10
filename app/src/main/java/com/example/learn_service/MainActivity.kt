@@ -15,7 +15,7 @@ class MainActivity : AppCompatActivity() {
 
     private var mBound: Boolean = false
     private var connection: ServiceConnection? = null
-    private var bindServiceTypeOne: BindServiceTypeOne? = null
+    private var bindServiceTypeOne: BindServiceWithExtends? = null
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -32,7 +32,7 @@ class MainActivity : AppCompatActivity() {
         }
 
         btnBoundServiceOne.setOnClickListener {
-            var result = bindServiceTypeOne?.changeTheTextIntoUppercase("Anand Kumar")
+            val result = bindServiceTypeOne?.changeTheTextIntoUppercase("Anand Kumar")
             Log.i("-----> ", "" + result)
         }
     }
@@ -60,14 +60,14 @@ class MainActivity : AppCompatActivity() {
             override fun onServiceConnected(p0: ComponentName?, iBinder: IBinder?) {
                 Log.i("-----> ", "onServiceConnected() -> connected")
                 mBound = true
-                val localBinder = iBinder as BindServiceTypeOne.LocalBinder
+                val localBinder = iBinder as BindServiceWithExtends.LocalBinder
                 bindServiceTypeOne = localBinder.getServiceInstance()
                 val result = bindServiceTypeOne!!.changeTheTextIntoUppercase("Arunkumar V")
                 Log.i("----->", "" + result)
             }
         }
 
-        val bindServiceTypeOne = Intent(this, BindServiceTypeOne::class.java)
+        val bindServiceTypeOne = Intent(this, BindServiceWithExtends::class.java)
         bindService(bindServiceTypeOne, connection as ServiceConnection, Context.BIND_AUTO_CREATE)
     }
 
