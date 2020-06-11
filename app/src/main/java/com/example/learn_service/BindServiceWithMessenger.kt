@@ -18,6 +18,7 @@ class BindServiceWithMessenger : Service() {
 
             when (msg.what) {
                 MSG_SAY_HELLO -> displayName("Arunkumar V")
+                LONG_PERFORMING_TASK -> doingLongPerformingTask(msg)
                 else ->
                     super.handleMessage(msg)
             }
@@ -28,6 +29,12 @@ class BindServiceWithMessenger : Service() {
         Log.i("-----> ", "" + name.toUpperCase())
     }
 
+    fun doingLongPerformingTask(msg: Message) {
+        Thread.sleep(5000)
+        val message: Message = Message.obtain(null, LONG_PERFORMING_TASK_COMPLETE, 0, 0)
+        msg.replyTo.send(message)
+    }
+
     override fun onBind(intent: Intent): IBinder {
         Log.i("-----> ", "onBind()")
         messenger = Messenger(MyHandler())
@@ -36,5 +43,7 @@ class BindServiceWithMessenger : Service() {
 
     companion object {
         const val MSG_SAY_HELLO = 10001
+        const val LONG_PERFORMING_TASK = 10002
+        const val LONG_PERFORMING_TASK_COMPLETE = 10003
     }
 }

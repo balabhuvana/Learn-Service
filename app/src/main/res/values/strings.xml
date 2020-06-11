@@ -4,4 +4,5 @@
     <string name="stop_service">Stop Service</string>
     <string name="bound_service_one">Bound Service One</string>
     <string name="messenger">Messenger</string>
+    <string name="messenger_with_reply">Messenger with reply</string>
 </resources>
